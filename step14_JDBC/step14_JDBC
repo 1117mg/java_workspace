@@ -1,0 +1,25 @@
+1. JDBC 
+	- Java DataBase Connectivity
+2. 필요성
+	- DB 종류에 종속적이지 않은 DB연동 표준 API
+	- DB 연동 정보
+		1. DB종류
+		2. DB의 url
+			jdbc:oracle:thin:@localhost:1521:xe
+			jdbc:mysql://localhost:3306/schema?serverTimezone=Asia/Seoul
+		3. DB의 id/pw
+		4. DB연동 
+			driver : oracle.jdbc.driver.OracleDriver
+					 com.mysql.cj.jdbc.Driver
+			
+3. API
+	* 개발 소스 구현 단계
+	1단계 : driver 로딩            - static{}
+	2단계 : DB접속 - ip/id/pw 		- Connection
+	3단계 : sql 문장 실행 객체			- Statement / PreparedStatement 
+	4단계 : sql 문장 실행			- ResultSet executeQuery(String query)
+								- int executeUpdate(String dml)
+	5단계 : 데이터 활용				
+		- select인 경우 ResultSet 객체 분해
+		- insert인 경우  숫자값으로 확인  
+	6단계 : 종료-자원반환				- 필수 finally{}
